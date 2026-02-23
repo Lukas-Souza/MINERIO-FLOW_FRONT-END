@@ -166,10 +166,17 @@ const [idMineradora, setIdMineradora] = useState<string>("");
               </button>
 <button type="submit" className="btn btn-primary" 
 onClick={
-    ()=>{
-      CreateLotMinerio(
-        
+    async ()=>{
+      await CreateLotMinerio(
+        teor,
+        pesoQuantidade,
+        valorPKilo,
+        unidadeDeMedidaPeso,
+        tipoMinerio,
+        status,
+        idMineradora
       );
+      
         router.refresh()
         }
 }
