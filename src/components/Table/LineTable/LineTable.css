@@ -1,0 +1,59 @@
+.BTN-TRANSFER{
+    background-color: rgb(28, 104, 218);
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    font-size: small;
+    color: rgb(221, 216, 210);
+    margin: auto;
+}
+.oIj{
+    margin: auto;
+    width: 80%;
+}
+.params{
+    font-weight: 500;
+   color: chocolate;
+}
+.paramsId{
+    font-weight: 600;
+    color: rgba(14, 14, 14, 0.815);
+}
+.money{
+    color: rgb(9, 114, 18);
+}
+.status_paragraf{
+    border: 0.12rem solid rgb(20, 116, 20);
+    border-radius: 15px;
+    color: rgb(20, 116, 20);
+    width: 140px;
+    height: 30px;
+    display: flex;
+    font-size: medium;
+    
+    padding: 1px 10px 0px 10px;
+}
+.status_paragraf p{
+
+    font-family: Arial;
+    font-weight: 500;
+    margin-left: 5px;
+}
+.point{
+    width: 5px;
+    height: 5px;
+    background-color: rgb(8, 82, 8);
+    border-radius: 10000px;
+    margin: auto;
+}
+
+.ContenderStatus{
+    display: flex;
+    justify-content: center;
+}
+.textDataTime{
+    color: rgb(0, 0, 22);
+}
+

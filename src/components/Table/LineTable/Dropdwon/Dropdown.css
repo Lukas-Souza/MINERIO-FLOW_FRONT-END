@@ -1,0 +1,19 @@
+.submenu {
+  position: relative;
+}
+
+.submenu-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
+.submenu:hover .submenu-menu {
+  display: block;
+}
+.menuDrop:hover{
+
+    background-color: rgb(63, 63, 201);
+    color: rgb(225, 227, 230);
+}
