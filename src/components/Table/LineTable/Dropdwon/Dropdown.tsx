@@ -1,6 +1,8 @@
 import "@/src/components/Table/LineTable/Dropdwon/Dropdown.css"
 import Option from "./Optons/options"
 import LineTable from "../LineTable"
+import { useRouter } from "next/navigation"
+import RemoveLotMinerio from "@/src/Api/LotMinerio/RemoveLotMinerio"
 type Props = {
     id_: number
 }
@@ -21,6 +23,7 @@ export default function Dropdown({id_}: Props){
     "BLOQUEADO",
     "CANCELADO"
     ]
+    const Router = useRouter()
     return(
   <div className="dropdown">
     <button
@@ -69,7 +72,12 @@ export default function Dropdown({id_}: Props){
       </button>
     </li>
     <li>
-      <button className="dropdown-item text-danger menuDrop" >
+      <button className="dropdown-item text-danger menuDrop" onClick={
+        ()=>{
+          RemoveLotMinerio(id_)
+          Router.refresh()
+        }
+      }>
         Excluir
       </button>
     </li>

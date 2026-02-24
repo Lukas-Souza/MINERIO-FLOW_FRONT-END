@@ -34,7 +34,6 @@ useEffect(()=>{
  <div className="container" >
     <NewRegistre></NewRegistre>
 
-      <AlertSucess></AlertSucess>
 
   <div className="row">
 
@@ -177,6 +176,7 @@ useEffect(()=>{
         <div className="d-grid gap-2">
 
   <button  type="button" 
+    id="BTN-Add-Lote"
         className="btn btn-primary"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop">

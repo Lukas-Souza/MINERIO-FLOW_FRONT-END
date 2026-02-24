@@ -83,7 +83,7 @@ const [idMineradora, setIdMineradora] = useState<string>("");
     <input type="text" className="form-control" id="_TipoMinerio" onChange={(e)=> setTipoMinerio(e.target.value)} />
   </div>
 
-  <div className="col-md-4">
+  <div className="col-md-6">
     <label htmlFor="_PesoQuantidade" className="form-label" >Peso total:</label>
     <input
       type="number"
@@ -96,7 +96,7 @@ const [idMineradora, setIdMineradora] = useState<string>("");
       
   </div>
 
-  <div className="col-md-4">
+  <div className="col-md-6">
   <label htmlFor="inputAddress2" className="form-label">Unidade de medida:</label>
     <input
       type="text"
