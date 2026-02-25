@@ -1,8 +1,16 @@
+"use client"
 import "@/src/components/Table/LineTable/Dropdwon/Dropdown.css"
 import Option from "./Optons/options"
 import LineTable from "../LineTable"
 import { useRouter } from "next/navigation"
+import UpdateRegistre from "@/src/components/Forms/Update Registre/UpdateRegistre"
 import RemoveLotMinerio from "@/src/Api/LotMinerio/RemoveLotMinerio"
+
+
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.bundle.min.js"
+import _interface from "@/src/components/Forms/Update Registre/ModalUpdateRegistre"
+
 type Props = {
     id_: number
 }
@@ -67,15 +75,31 @@ export default function Dropdown({id_}: Props){
       </ul>
     </li>
     <li>
-      <button className="dropdown-item menuDrop">
+      
+      <button className="dropdown-item menuDrop"
+       type="button" 
+        id="BTN-Add-Lote"
+        data-bs-toggle="modal"
+        data-bs-target="#staticUpdateRegistre" 
+        onClick={
+          ()=>{
+            <_interface
+            id={22}
+            >
+
+            </_interface>
+          }
+        }
+      >
         Editar
       </button>
     </li>
     <li>
       <button className="dropdown-item text-danger menuDrop" onClick={
-        ()=>{
-          RemoveLotMinerio(id_)
+        async ()=>{
+          await RemoveLotMinerio(id_)
           Router.refresh()
+          
         }
       }>
         Excluir

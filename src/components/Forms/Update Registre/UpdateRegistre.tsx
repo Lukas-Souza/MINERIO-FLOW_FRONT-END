@@ -1,11 +1,12 @@
 "use-client"
 import "@/src/components/Forms/New Registre/NewRegistre.css"
-
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import CreateLotMinerio from "@/src/Api/LotMinerio/CreateLotMinerio";
+
+
 
     const StatusDeLote= [
     "PLANEJADO",
@@ -23,7 +24,20 @@ import CreateLotMinerio from "@/src/Api/LotMinerio/CreateLotMinerio";
     "BLOQUEADO",
     "CANCELADO"
     ]
-export default function NewRegistre(){
+    type Props ={
+        _id: number
+        _tipo_minerio: string,
+        _unidade_medida: string,
+        _status: string,
+        _id_mina: string
+
+        _peso: number,
+        _preco: number,
+        _teor: number,
+
+
+    }
+export default function UpdateRegistre({_id, _tipo_minerio, _unidade_medida, _status, _id_mina, _peso, _preco, _teor}:Props){
   {
 const router = useRouter()
 // number
@@ -49,13 +63,14 @@ const [idMineradora, setIdMineradora] = useState<string>("");
       {/* Modal */}
       <div
         className="modal fade"
-        id="staticBackdrop"
+        id="staticUpdateRegistre"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
         tabIndex={-1}
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
+        
         <div className="modal-dialog">
           <div className="modal-content">
 
@@ -64,7 +79,7 @@ const [idMineradora, setIdMineradora] = useState<string>("");
                 className="modal-title fs-5"
                 id="staticBackdropLabel"
               >
-                Cadastrar novo lote
+                {_id}
               </h1>
 
               <button
@@ -80,12 +95,13 @@ const [idMineradora, setIdMineradora] = useState<string>("");
         <form className="row g-3">
   <div className="col-12">
     <label htmlFor="inputEmail4" className="form-label">Tipo do minerio:</label>
-    <input type="text" className="form-control" id="_TipoMinerio" onChange={(e)=> setTipoMinerio(e.target.value)} />
+    <input type="text" className="form-control" defaultValue={_tipo_minerio} id="_TipoMinerio" onChange={(e)=> setTipoMinerio(e.target.value)} />
   </div>
 
   <div className="col-md-6">
-    <label htmlFor="_PesoQuantidade" className="form-label" >Peso total:</label>
+    <label htmlFor="_PesoQuantidade" className="form-label">Peso total:</label>
     <input
+     defaultValue={_peso}
       type="number"
       step={0.1}
       className="form-control"
@@ -99,6 +115,7 @@ const [idMineradora, setIdMineradora] = useState<string>("");
   <div className="col-md-6">
   <label htmlFor="inputAddress2" className="form-label">Unidade de medida:</label>
     <input
+     defaultValue={_unidade_medida}
       type="text"
       className="form-control"
       id="_UnidadeDeMedidaPeso"
@@ -110,6 +127,7 @@ const [idMineradora, setIdMineradora] = useState<string>("");
   <div className="col-md-4">
   <label htmlFor="inputAddress2" className="form-label">Preço/Uni:</label>
     <input
+     defaultValue={_preco}
       type="number"
       className="form-control"
       id="ValorPKilo"
@@ -122,6 +140,7 @@ const [idMineradora, setIdMineradora] = useState<string>("");
     <label htmlFor="inputCity" className="form-label">Teor:</label>
     <input type="text" className="form-control" id="_Teor" placeholder="100%"
     onChange={(e)=> setTeor(Number(e.target.value))}
+     defaultValue={_teor}
     />
   </div>
 
@@ -130,7 +149,7 @@ const [idMineradora, setIdMineradora] = useState<string>("");
     <select id="_Status" className="form-select"
     onChange={(e)=> setStatus(e.target.value)}
     >
-      <option defaultValue="PLANEJANDO">PLANEJANDO</option>
+      <option  defaultValue={_status}>PLANEJANDO</option>
       {
         StatusDeLote.map( (status)=>
         (
@@ -144,7 +163,9 @@ const [idMineradora, setIdMineradora] = useState<string>("");
   </div>
 
   <div className="col-md-4">
-    <label htmlFor="inputZip" className="form-label">Id da mina:</label>
+    <label htmlFor="inputZip" className="form-label"
+     defaultValue={_id_mina}
+    >Id da mina:</label>
     <input type="text" className="form-control" id="IdMineradora"  onChange={(e)=> setIdMineradora(e.target.value)}/>
   </div>
 
@@ -167,15 +188,18 @@ const [idMineradora, setIdMineradora] = useState<string>("");
 <button type="submit" className="btn btn-primary" 
 onClick={
     async ()=>{
-      await CreateLotMinerio(
-        teor,
-        pesoQuantidade,
-        valorPKilo,
-        unidadeDeMedidaPeso,
-        tipoMinerio,
-        status,
-        idMineradora
-      );
+
+    //   await UpdateRegistre(
+    //     teor,
+    //     pesoQuantidade,
+    //     valorPKilo,
+    //     unidadeDeMedidaPeso,
+    //     tipoMinerio,
+    //     status,
+    //     idMineradora,
+        
+
+    //   );
       
         router.refresh()
         }

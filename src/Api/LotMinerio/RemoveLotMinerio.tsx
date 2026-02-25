@@ -8,4 +8,5 @@ export default async function RemoveLotMinerio(id:number){
             }
         }
     )
+    return 
 }

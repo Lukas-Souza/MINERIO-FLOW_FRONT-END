@@ -15,6 +15,8 @@ import { Minerio } from "@/src/components/Table/table"
 import AddIconfrom from "@/src/Asserts/plus.png"
 import AlertSucess from "@/src/components/Alert/Sucess/Sucess"
 import NewRegistre from "@/src/components/Forms/New Registre/NewRegistre"
+import UpdateRegistre from "@/src/components/Forms/Update Registre/UpdateRegistre"
+import _interface from "@/src/components/Forms/Update Registre/ModalUpdateRegistre"
 export default function HomeScreen(){
 const [lote,setLote] = useState<Minerio[]>([])
 useEffect(()=>{
@@ -33,7 +35,18 @@ useEffect(()=>{
 
  <div className="container" >
     <NewRegistre></NewRegistre>
+    <UpdateRegistre
+    
+        _id={2}
+        _tipo_minerio="Ferro"
+        _unidade_medida="kg"
+        _status="Disponível"
+        _id_mina="M-10"
+        _peso={500}
+        _preco={1200}
+        _teor={85}
 
+    ></UpdateRegistre>
 
   <div className="row">
 
@@ -175,11 +188,13 @@ useEffect(()=>{
         <div className="col">
         <div className="d-grid gap-2">
 
-  <button  type="button" 
+  <button  
+  type="button" 
     id="BTN-Add-Lote"
         className="btn btn-primary"
         data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop">
+        data-bs-target="#staticBackdrop"
+        >
     
            <Image
                    src={AddIconfrom} 
