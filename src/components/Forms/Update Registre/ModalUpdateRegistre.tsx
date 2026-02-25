@@ -1,8 +1,8 @@
 import UpdateRegistre from "./UpdateRegistre"
 type Props={
-    id:number
+    id?:number
 }
-export default function _interface({id}:Props){
+export default function _interface({id =0}){
     return(
         <>
         <UpdateRegistre

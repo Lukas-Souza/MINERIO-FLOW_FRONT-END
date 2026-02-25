@@ -3,9 +3,8 @@ import "@/src/components/Table/LineTable/Dropdwon/Dropdown.css"
 import Option from "./Optons/options"
 import LineTable from "../LineTable"
 import { useRouter } from "next/navigation"
-import UpdateRegistre from "@/src/components/Forms/Update Registre/UpdateRegistre"
 import RemoveLotMinerio from "@/src/Api/LotMinerio/RemoveLotMinerio"
-
+import UpdateRegistre from "@/src/components/Forms/Update Registre/UpdateRegistre"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -32,7 +31,20 @@ export default function Dropdown({id_}: Props){
     "CANCELADO"
     ]
     const Router = useRouter()
+
     return(
+      <div className="contenderDrowpDown">
+
+<UpdateRegistre
+                _id={33}
+        _tipo_minerio="Ferro"
+        _unidade_medida="kg"
+        _status="Disponível"
+        _id_mina="M-10"
+        _peso={55}
+        _preco={1200}
+        _teor={85}
+></UpdateRegistre>
   <div className="dropdown">
     <button
         className="btn btn-sm btn-secondary dropdown-toggle"
@@ -83,11 +95,11 @@ export default function Dropdown({id_}: Props){
         data-bs-target="#staticUpdateRegistre" 
         onClick={
           ()=>{
-            <_interface
-            id={22}
-            >
+            // <_interface
+            
+            
 
-            </_interface>
+            {/* </_interface> */}
           }
         }
       >
@@ -106,6 +118,7 @@ export default function Dropdown({id_}: Props){
       </button>
     </li>
   </ul>
+  </div>
 </div>
     )
 }

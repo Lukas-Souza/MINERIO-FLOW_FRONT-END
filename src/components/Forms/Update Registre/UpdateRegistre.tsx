@@ -1,4 +1,4 @@
-"use-client"
+"use client";
 import "@/src/components/Forms/New Registre/NewRegistre.css"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -6,9 +6,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import CreateLotMinerio from "@/src/Api/LotMinerio/CreateLotMinerio";
 
+    type Props ={
+        _id: number
+        _tipo_minerio: string,
+        _unidade_medida: string,
+        _status: string,
+        _id_mina: string
+
+        _peso: number,
+        _preco: number,
+        _teor: number,
 
 
-    const StatusDeLote= [
+    }
+export default function UpdateRegistre({_id, _tipo_minerio, _unidade_medida, _status, _id_mina, _peso, _preco, _teor}:Props){
+const StatusDeLote= [
     "PLANEJADO",
     "EXTRACAO",
     "EXTRAIDO",
@@ -24,23 +36,7 @@ import CreateLotMinerio from "@/src/Api/LotMinerio/CreateLotMinerio";
     "BLOQUEADO",
     "CANCELADO"
     ]
-    type Props ={
-        _id: number
-        _tipo_minerio: string,
-        _unidade_medida: string,
-        _status: string,
-        _id_mina: string
-
-        _peso: number,
-        _preco: number,
-        _teor: number,
-
-
-    }
-export default function UpdateRegistre({_id, _tipo_minerio, _unidade_medida, _status, _id_mina, _peso, _preco, _teor}:Props){
-  {
-const router = useRouter()
-// number
+  // number
 const [teor, setTeor] = useState<number>(0);
 
 const [pesoQuantidade, setPesoQuantidade] = useState<number>(0);
@@ -59,7 +55,6 @@ const [idMineradora, setIdMineradora] = useState<string>("");
     return(
         
     <>
-
       {/* Modal */}
       <div
         className="modal fade"
@@ -78,8 +73,9 @@ const [idMineradora, setIdMineradora] = useState<string>("");
               <h1
                 className="modal-title fs-5"
                 id="staticBackdropLabel"
+    
               >
-                {_id}
+                Atualizar lote
               </h1>
 
               <button
@@ -139,8 +135,8 @@ const [idMineradora, setIdMineradora] = useState<string>("");
   <div className="col-md-4">
     <label htmlFor="inputCity" className="form-label">Teor:</label>
     <input type="text" className="form-control" id="_Teor" placeholder="100%"
-    onChange={(e)=> setTeor(Number(e.target.value))}
      defaultValue={_teor}
+onChange={(e)=> setTeor(Number(e.target.value))}
     />
   </div>
 
@@ -186,24 +182,25 @@ const [idMineradora, setIdMineradora] = useState<string>("");
                 Close
               </button>
 <button type="submit" className="btn btn-primary" 
-onClick={
-    async ()=>{
 
-    //   await UpdateRegistre(
-    //     teor,
-    //     pesoQuantidade,
-    //     valorPKilo,
-    //     unidadeDeMedidaPeso,
-    //     tipoMinerio,
-    //     status,
-    //     idMineradora,
-        
+onClick={async () => {
+alert(_id+"")
+alert(teor+"")
+alert(status)
 
-    //   );
-      
-        router.refresh()
-        }
-}
+    await UpdateRegistre({
+      _id: _id,
+      _teor: teor,
+      _peso: pesoQuantidade,
+      _preco: valorPKilo,
+      _unidade_medida: unidadeDeMedidaPeso,
+      _tipo_minerio: tipoMinerio,
+      _status: status,
+      _id_mina: idMineradora
+    });
+
+  }}
+
 >
       Cadastrar
     </button>
@@ -214,5 +211,4 @@ onClick={
       </div>
     </>
   );
-}
 }

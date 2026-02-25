@@ -17,6 +17,7 @@ import AlertSucess from "@/src/components/Alert/Sucess/Sucess"
 import NewRegistre from "@/src/components/Forms/New Registre/NewRegistre"
 import UpdateRegistre from "@/src/components/Forms/Update Registre/UpdateRegistre"
 import _interface from "@/src/components/Forms/Update Registre/ModalUpdateRegistre"
+
 export default function HomeScreen(){
 const [lote,setLote] = useState<Minerio[]>([])
 useEffect(()=>{
@@ -32,24 +33,14 @@ useEffect(()=>{
     <html lang="pt-br">
     <body className="contender">
       <Header/>
-
+  
+    
+       
  <div className="container" >
     <NewRegistre></NewRegistre>
-    <UpdateRegistre
-    
-        _id={2}
-        _tipo_minerio="Ferro"
-        _unidade_medida="kg"
-        _status="Disponível"
-        _id_mina="M-10"
-        _peso={500}
-        _preco={1200}
-        _teor={85}
-
-    ></UpdateRegistre>
-
+  
   <div className="row">
-
+    
     <div className="col">
       <Cards label="PLANEJADO" color={statusColors.PLANEJADO}
        value={
@@ -167,10 +158,12 @@ useEffect(()=>{
         <button
           className="btn btn-primary"
           type="button"
+        
        style={
         {
           position: "inherit"
         }
+        
       }
        >
            <Image
