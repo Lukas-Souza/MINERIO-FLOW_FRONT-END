@@ -16,11 +16,14 @@ export interface Minerio {
   tipoMinerio: string;
   status: string;
   dataExtracao: string;
+  busca:string
 }
 
+type Props ={
+  busca: string
+}
 
-
-export default function Table() {
+export default function Table({busca}: Props) {
 const [lotes,setLotes] = useState<Minerio[]>([])
 useEffect(()=>{
  async function Carregar() {
@@ -30,6 +33,9 @@ useEffect(()=>{
  }
  Carregar()
 }, [])
+  const Serch = lotes.filter( (filter)=> 
+  filter.idLote.toString().includes(busca) || filter.idMineradora.toString().toLocaleUpperCase().includes(busca.toLocaleUpperCase())
+)
   return(
 
   
@@ -42,20 +48,21 @@ useEffect(()=>{
             <th>Peso Quantidade</th>
             <th>Valor por unid</th>
             <th>Status</th>
-            <th>Tipo do Minerio</th>
-            <th>Unidade De Medida de Peso</th>
             <th>Ultima atualização</th>
+            <th>Unidade De Medida de Peso</th>
+            <th>Tipo do Minerio</th>
             <th>Ação</th>
           </tr>
         </thead>
        <tbody>
         {
-          lotes.map( (lotMinerio)=>(
+
+          (busca? Serch: lotes).map( (lotMinerio)=>(
             <LineTable
-                key={lotMinerio.idLote}
+                key={lotMinerio.busca}
                 idLote={lotMinerio.idLote}
                 idMineradora={lotMinerio.idMineradora}
-                teor={lotMinerio.teor.toString()}
+                teor={lotMinerio.teor}
                 pesoQuantidade={lotMinerio.pesoQuantidade}
                 valoPKilo={lotMinerio.valorPKilo}
                 unidadeMedida={lotMinerio.unidadeDeMedidaPeso.toUpperCase()}

@@ -4,7 +4,6 @@ import Option from "./Optons/options"
 import LineTable from "../LineTable"
 import { useRouter } from "next/navigation"
 import RemoveLotMinerio from "@/src/Api/LotMinerio/RemoveLotMinerio"
-import UpdateRegistre from "@/src/components/Forms/Update Registre/UpdateRegistre"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -44,16 +43,6 @@ export default function Dropdown({idLote, idMineradora, teor,pesoQuantidade,valo
     return(
       <div className="contenderDrowpDown">
 
-<UpdateRegistre
-                _id={idLote}
-        _tipo_minerio={tipoMinerio}
-        _unidade_medida={unidadeMedida}
-        _status={status}
-        _id_mina={idMineradora}
-        _peso={pesoQuantidade}
-        _preco={valoPKilo}
-        _teor={teor}
-></UpdateRegistre>
   <div className="dropdown">
     <button
         className="btn btn-sm btn-secondary dropdown-toggle"
@@ -94,26 +83,6 @@ export default function Dropdown({idLote, idMineradora, teor,pesoQuantidade,valo
         </li>
 
       </ul>
-    </li>
-    <li>
-      
-      <button className="dropdown-item menuDrop"
-       type="button" 
-        id="BTN-Add-Lote"
-        data-bs-toggle="modal"
-        data-bs-target="#staticUpdateRegistre" 
-        onClick={
-          ()=>{
-            // <_interface
-            
-            
-
-            {/* </_interface> */}
-          }
-        }
-      >
-        Editar
-      </button>
     </li>
     <li>
       <button className="dropdown-item text-danger menuDrop" onClick={

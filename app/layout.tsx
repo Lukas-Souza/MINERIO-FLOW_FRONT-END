@@ -15,10 +15,11 @@ import { Minerio } from "@/src/components/Table/table"
 import AddIconfrom from "@/src/Asserts/plus.png"
 import AlertSucess from "@/src/components/Alert/Sucess/Sucess"
 import NewRegistre from "@/src/components/Forms/New Registre/NewRegistre"
-import UpdateRegistre from "@/src/components/Forms/Update Registre/UpdateRegistre"
-import _interface from "@/src/components/Forms/Update Registre/ModalUpdateRegistre"
+
 
 export default function HomeScreen(){
+const [busca, setBusca] = useState<string>("");
+
 const [lote,setLote] = useState<Minerio[]>([])
 useEffect(()=>{
  async function Carregar() {
@@ -147,6 +148,8 @@ useEffect(()=>{
           type="text"
           className="form-control"
           placeholder="Buscar por lote"
+          value={busca}
+          onChange={(e) => setBusca(e.target.value)}
        
        style={
         {
@@ -158,6 +161,7 @@ useEffect(()=>{
         <button
           className="btn btn-primary"
           type="button"
+          onClick={()=> setBusca(busca.trim)}
         
        style={
         {
@@ -206,7 +210,7 @@ useEffect(()=>{
         </div>
       </div>
 
-    <Table></Table>
+    <Table busca={busca}></Table>
   </div>
  </div>
 

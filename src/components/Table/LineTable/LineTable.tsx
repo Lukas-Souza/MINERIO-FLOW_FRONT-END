@@ -24,8 +24,9 @@ type Props= {
 
 }
 export default function LineTable({idLote, idMineradora, teor,pesoQuantidade,valoPKilo,unidadeMedida,tipoMinerio,status,dataExtracao, color_}:Props) {
-    
+
   return(
+    
         <tr className="line" >
             <td><p className="paramsId">{idLote}</p></td>
             <td><p className="params">{idMineradora}</p></td>

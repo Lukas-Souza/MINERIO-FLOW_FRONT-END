@@ -1,3 +1,6 @@
+
+import { useRouter } from "next/navigation"
+
 const API_URL = "http://localhost:5167/lot-minerio/"
 export default async function CreateLotMinerio(
     _teor:number,
@@ -32,9 +35,12 @@ export default async function CreateLotMinerio(
                     Status: _status,
                     IdMineradora: _idMineradora
                 }
-            )
+            ),
+                
         }
     )
-        return Response
+    if  ( await !Response.ok) {
+        await alert("Ocorreu um erro no cadastro, por favor tente novamente!")
+    }
 
 }

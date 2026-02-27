@@ -10,8 +10,8 @@ export default async function UpdateLoteMinerio(
          _idLote:number
         ){
 
-            alert(API_URL+_idLote, )
-         await fetch(API_URL+_idLote, 
+            
+         const Response = await fetch(API_URL+_idLote, 
         {
 
             method: "PUT",
@@ -37,4 +37,7 @@ export default async function UpdateLoteMinerio(
             )
         }
     )
+        if  ( await !Response.ok) {
+        await alert("Ocorreu um erro no cadastro, por favor tente novamente!")
+    }
 }
