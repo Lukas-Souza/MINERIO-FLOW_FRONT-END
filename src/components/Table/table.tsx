@@ -39,12 +39,12 @@ useEffect(()=>{
             <th>IdLote</th>
             <th>IdMineradora</th>
             <th>Teor</th>
-            <th>PesoQuantidade</th>
-            <th>ValorPKilo</th>
-            <th>UnidadeDeMedidaPeso</th>
-            <th>TipoMinerio</th>
+            <th>Peso Quantidade</th>
+            <th>Valor por unid</th>
             <th>Status</th>
-            <th>DataExtracao</th>
+            <th>Tipo do Minerio</th>
+            <th>Unidade De Medida de Peso</th>
+            <th>Ultima atualização</th>
             <th>Ação</th>
           </tr>
         </thead>

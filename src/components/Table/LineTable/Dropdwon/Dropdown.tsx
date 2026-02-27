@@ -8,12 +8,21 @@ import UpdateRegistre from "@/src/components/Forms/Update Registre/UpdateRegistr
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
-import _interface from "@/src/components/Forms/Update Registre/ModalUpdateRegistre"
 
 type Props = {
-    id_: number
-}
-export default function Dropdown({id_}: Props){
+    idLote: number,
+    idMineradora: string,
+    teor: number,
+    pesoQuantidade: number,
+    valoPKilo: number,
+    unidadeMedida: string,
+    tipoMinerio: string,
+    status: string,
+    dataExtracao: string
+
+  }
+
+export default function Dropdown({idLote, idMineradora, teor,pesoQuantidade,valoPKilo,unidadeMedida,tipoMinerio,status,dataExtracao}: Props){
     const Stuss= [
             "PLANEJADO",
     "EXTRACAO",
@@ -36,14 +45,14 @@ export default function Dropdown({id_}: Props){
       <div className="contenderDrowpDown">
 
 <UpdateRegistre
-                _id={33}
-        _tipo_minerio="Ferro"
-        _unidade_medida="kg"
-        _status="Disponível"
-        _id_mina="M-10"
-        _peso={55}
-        _preco={1200}
-        _teor={85}
+                _id={idLote}
+        _tipo_minerio={tipoMinerio}
+        _unidade_medida={unidadeMedida}
+        _status={status}
+        _id_mina={idMineradora}
+        _peso={pesoQuantidade}
+        _preco={valoPKilo}
+        _teor={teor}
 ></UpdateRegistre>
   <div className="dropdown">
     <button
@@ -77,7 +86,7 @@ export default function Dropdown({id_}: Props){
                          <Option
                          key={staus} 
                          name={staus}
-                         id_lote={id_}
+                         id_lote={idLote}
                          ></Option>
                 )
                 )
@@ -109,7 +118,7 @@ export default function Dropdown({id_}: Props){
     <li>
       <button className="dropdown-item text-danger menuDrop" onClick={
         async ()=>{
-          await RemoveLotMinerio(id_)
+          await RemoveLotMinerio(idLote)
           Router.refresh()
           
         }

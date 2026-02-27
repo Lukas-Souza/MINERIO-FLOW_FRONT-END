@@ -1,5 +1,5 @@
 const API_URL = "http://localhost:5167/lot-minerio/"
-export default async function CreateLotMinerio(
+export default async function UpdateLoteMinerio(
     _teor:number,
      _pesoQuantidade:number,
       _valorPKilo:number,
@@ -10,7 +10,8 @@ export default async function CreateLotMinerio(
          _idLote:number
         ){
 
-   const Response =  await fetch(API_URL+_idLote, 
+            alert(API_URL+_idLote, )
+         await fetch(API_URL+_idLote, 
         {
 
             method: "PUT",
@@ -36,6 +37,4 @@ export default async function CreateLotMinerio(
             )
         }
     )
-        return Response
-
 }

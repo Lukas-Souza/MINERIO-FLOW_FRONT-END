@@ -5,7 +5,8 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import CreateLotMinerio from "@/src/Api/LotMinerio/CreateLotMinerio";
-
+import UpdateRegistre_ from "@/src/Api/LotMinerio/UpdateLoteMinerio"
+import UpdateLoteMinerio from "@/src/Api/LotMinerio/UpdateLoteMinerio";
     type Props ={
         _id: number
         _tipo_minerio: string,
@@ -37,23 +38,23 @@ const StatusDeLote= [
     "CANCELADO"
     ]
   // number
-const [teor, setTeor] = useState<number>(0);
+const [teor, setTeor] = useState<number>(_teor);
 
-const [pesoQuantidade, setPesoQuantidade] = useState<number>(0);
+const [pesoQuantidade, setPesoQuantidade] = useState<number>(_peso);
 
-const [valorPKilo, setValorPKilo] = useState<number>(0);
+const [valorPKilo, setValorPKilo] = useState<number>(_preco);
 
 // string
-const [unidadeDeMedidaPeso, setUnidadeDeMedidaPeso] = useState<string>("");
+const [unidadeDeMedidaPeso, setUnidadeDeMedidaPeso] = useState<string>(_unidade_medida);
 
-const [tipoMinerio, setTipoMinerio] = useState<string>("");
+const [tipoMinerio, setTipoMinerio] = useState<string>(_tipo_minerio);
 
-const [status, setStatus] = useState<string>("");
+const [status, setStatus] = useState<string>(_status);
 
-const [idMineradora, setIdMineradora] = useState<string>("");
+const [idMineradora, setIdMineradora] = useState<string>(_id_mina);
   
     return(
-        
+      
     <>
       {/* Modal */}
       <div
@@ -184,20 +185,21 @@ onChange={(e)=> setTeor(Number(e.target.value))}
 <button type="submit" className="btn btn-primary" 
 
 onClick={async () => {
-alert(_id+"")
-alert(teor+"")
-alert(status)
 
-    await UpdateRegistre({
-      _id: _id,
-      _teor: teor,
-      _peso: pesoQuantidade,
-      _preco: valorPKilo,
-      _unidade_medida: unidadeDeMedidaPeso,
-      _tipo_minerio: tipoMinerio,
-      _status: status,
-      _id_mina: idMineradora
-    });
+    await UpdateLoteMinerio(
+      teor,
+  pesoQuantidade,
+  valorPKilo,
+  unidadeDeMedidaPeso,
+  tipoMinerio,
+  status,
+  idMineradora,
+  _id
+    );
+    alert(teor)
+    alert(pesoQuantidade)
+    
+
 
   }}
 

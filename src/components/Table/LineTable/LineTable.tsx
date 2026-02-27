@@ -14,7 +14,7 @@ type Props= {
     color_ : string
     idLote: number,
     idMineradora: string,
-    teor: string,
+    teor: number,
     pesoQuantidade: number,
     valoPKilo: number,
     unidadeMedida: string,
@@ -42,7 +42,8 @@ R$ {ReturnValueMoney({
             <div className="status_paragraf"
             style={
                 {
-                  border: `2px solid ${color_}`
+                  margin: "auto",
+                  border: `0.2rem solid ${color_}`
                 }
               }
             >
@@ -70,7 +71,17 @@ R$ {ReturnValueMoney({
 
             <td>
               <Dropdown 
-              id_={idLote}
+                
+                 idLote={idLote}
+    idMineradora={idMineradora} 
+    teor={teor}
+    pesoQuantidade={pesoQuantidade}
+    valoPKilo={valoPKilo}
+    unidadeMedida={unidadeMedida}
+    tipoMinerio={tipoMinerio}
+    status={status}
+    dataExtracao={dataExtracao} 
+
               ></Dropdown>
             </td>
           </tr>
